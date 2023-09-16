@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour
     private bool flipX;
 
     private bool isWallSliding;
-    private float walllSlindingSpeed = 2f;
+    private float walllSlindingSpeed = 2.5f;
 
     private bool isWallJumping;
     private float wallJumpingDirection;
-    private float wallJumpingTime = 0.2f;
+    private float wallJumpingTime = 0.3f;
     private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
+    private float wallJumpingDuration = 0.5f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
 
