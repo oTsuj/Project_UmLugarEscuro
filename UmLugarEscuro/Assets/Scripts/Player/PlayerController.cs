@@ -77,15 +77,14 @@ public class PlayerController : MonoBehaviour
         if (!isWallJumping)
         {
             rig.velocity = new Vector2(horizontal * speed, rig.velocity.y);
-            if (horizontal != 0)
+            if (horizontal != 0 && rig.velocity.y < 1 && !isWallSliding)
             {
                 anim.Play("Run_Luca");
             }
-            else if (horizontal == 0)
+            else if (horizontal == 0 && rig.velocity.y ==0 && !isWallSliding)
             {
                 anim.Play("Idle_Luca");
             }
-            
         }
         
         
@@ -122,6 +121,8 @@ public class PlayerController : MonoBehaviour
             if (isGrounded || doubleJump)
             {
                 rig.velocity = new Vector2(rig.velocity.x, jumpingPower);
+                
+                anim.Play("Jump_Luca");
 
                 doubleJump = !doubleJump;
             }
@@ -139,6 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isWallSliding)
         {
+            //anim.Play("WallSlide_Luca");
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
@@ -153,6 +155,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
+            anim.Play("Jump_Luca");
             isWallJumping = true;
             rig.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
@@ -206,6 +209,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             isWallSliding = false;
+        }
+
+        if (isWallSliding)
+        {
+            anim.Play("WallSlide_Luca");
         }
     }
 
