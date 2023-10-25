@@ -42,7 +42,7 @@ public class PlataformaFall : MonoBehaviour
        void OnTriggerEnter2D(Collider2D other)
        {
            // Reinicie a plataforma se o jogador voltar para ela enquanto ela está caindo.
-           if (other.CompareTag("Player") && isFalling)
+           if (other.CompareTag("Reset") && isFalling)
            {
                ResetPlatform();
            }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,12 @@ public class Plataforma : MonoBehaviour
         targetPosition = endPoint.position;
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Move()
     {
         // Move a plataforma em direção ao ponto-alvo
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -36,6 +42,22 @@ public class Plataforma : MonoBehaviour
 
             // Inverte a direção de movimento
             movingToEndPoint = !movingToEndPoint;
+        } 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.transform.SetParent(null);
         }
     }
 }

@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
     //Verifica se o jogador entrou em contato com o chão
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Ground")
+        if (col.gameObject.layer == 6)
         {
             isGrounded = true;
         }
