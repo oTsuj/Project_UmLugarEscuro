@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Reset
+  - Ground
+  - ObjetoColisao
+  - WallT
+  - Espinhos
+  - Checkpoint
+  - Fall
   layers:
   - Default
   - TransparentFX

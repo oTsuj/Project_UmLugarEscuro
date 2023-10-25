@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private float dashingPower = 48f;
     private float dashingTime = 0.12f;
     private float dashingCooldown = 1f;
+
+    private Animator anim;
     
 
     public bool isGrounded;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -74,7 +76,16 @@ public class PlayerController : MonoBehaviour
 
         if (!isWallJumping)
         {
-            rig.velocity = new Vector2(horizontal * speed, rig.velocity.y); 
+            rig.velocity = new Vector2(horizontal * speed, rig.velocity.y);
+            if (horizontal != 0)
+            {
+                anim.Play("Run_Luca");
+            }
+            else if (horizontal == 0)
+            {
+                anim.Play("Idle_Luca");
+            }
+            
         }
         
         
