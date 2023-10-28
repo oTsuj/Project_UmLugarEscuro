@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 48f;
-    private float dashingTime = 0.12f;
+    private float dashingPower = 42f;
+    private float dashingTime = 0.15f;
     private float dashingCooldown = 1f;
 
     private Animator anim;

@@ -26,5 +26,11 @@ public class Stalactite : MonoBehaviour
             Destroy(bc2d);
             Destroy(gameObject, 0.7f);
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(bc2d);
+            Destroy(gameObject, 0.2f);
+        }
     }
 }
