@@ -32,8 +32,14 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     
-
     public bool isGrounded;
+    
+    [SerializeField] private float coyoteTime = 0.3f;
+    [SerializeField] float coyoteTimeCounter;
+    private bool canCoyouteTime;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
 
     [SerializeField] private Rigidbody2D rig;
     [SerializeField] private Transform wallCheck;
@@ -55,6 +61,9 @@ public class PlayerController : MonoBehaviour
         ActiveDash();
         WallSlide();
         WallJump();
+        Coyote();
+        JumpBuffer();
+
     }
 
     private void FixedUpdate()
@@ -116,11 +125,13 @@ public class PlayerController : MonoBehaviour
             doubleJump = false;
         }
 
-        if (Input.GetButtonDown("Jump") && !isWallJumping)
+        if (jumpBufferCounter > 0 && !isWallJumping)
         {
-            if (isGrounded || doubleJump)
+            if (isGrounded || doubleJump || coyoteTimeCounter > 0f)
             {
                 rig.velocity = new Vector2(rig.velocity.x, jumpingPower);
+
+                jumpBufferCounter = 0f;
                 
                 anim.Play("Jump_Luca");
 
@@ -131,6 +142,35 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Jump") && rig.velocity.y > 0f)
         {
             rig.velocity = new Vector2(rig.velocity.x, rig.velocity.y * 0.5f);
+
+            coyoteTimeCounter = 0f;
+        }
+    }
+
+    //Aplica o CoyoteTime
+    private void Coyote()
+    {
+        if (isGrounded)
+        {
+            coyoteTimeCounter = coyoteTime;
+            //canCoyouteTime = true;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
+
+    //Buffering de pulo do player
+    private void JumpBuffer()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
         }
     }
     
