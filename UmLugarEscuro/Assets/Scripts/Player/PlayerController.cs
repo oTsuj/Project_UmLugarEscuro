@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int playerVida = 3;
+    //private int playerVida = 3;
 
     private float horizontal;
     private float speed = 8f;
