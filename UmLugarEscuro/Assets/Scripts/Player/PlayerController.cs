@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     
+    public AudioSource somWalk;
+    public AudioSource somDash;
+    public AudioSource somJump;
+    public AudioSource somWallSlide;
+    
     public bool isGrounded;
     
     [SerializeField] private float coyoteTime = 0.3f;
@@ -77,7 +82,6 @@ public class PlayerController : MonoBehaviour
         
         Move();
     }
-
     
     //Movimentação horizontal do jogador
     private void Move()
@@ -88,6 +92,7 @@ public class PlayerController : MonoBehaviour
         if (!isWallJumping)
         {
             rig.velocity = new Vector2(horizontal * speed, rig.velocity.y);
+            
             if (horizontal != 0 && rig.velocity.y < 1 && !isWallSliding)
             {
                 anim.Play("Run_Luca");
@@ -96,6 +101,7 @@ public class PlayerController : MonoBehaviour
             {
                 anim.Play("Idle_Luca");
             }
+            
         }
         
         
@@ -136,6 +142,8 @@ public class PlayerController : MonoBehaviour
                 jumpBufferCounter = 0f;
                 
                 anim.Play("Jump_Luca");
+                
+                somJump.Play();
 
                 doubleJump = !doubleJump;
             }
@@ -198,6 +206,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
         {
             anim.Play("Jump_Luca");
+            somJump.Play();
             isWallJumping = true;
             rig.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             wallJumpingCounter = 0f;
@@ -293,6 +302,7 @@ public class PlayerController : MonoBehaviour
     //Lógica do Dash do jogador
     private IEnumerator Dash()
     {
+        somDash.Play();
         canDash = false;
         isDashing = true;
         float originalGravity = rig.gravityScale;

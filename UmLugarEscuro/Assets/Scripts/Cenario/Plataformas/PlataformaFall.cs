@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,13 @@ public class PlataformaFall : MonoBehaviour
        private Rigidbody2D rb;
        private bool isFalling = false;
        private Vector2 originalPosition;
-   
+       private AudioSource audio;
+
+       private void Awake()
+       {
+           audio = GetComponent<AudioSource>();
+       }
+
        void Start()
        {
            rb = GetComponent<Rigidbody2D>();
@@ -27,6 +34,7 @@ public class PlataformaFall : MonoBehaviour
    
        void Fall()
        {
+           audio.Play();
            isFalling = true;
            rb.bodyType = RigidbodyType2D.Dynamic;
            rb.velocity = new Vector2(0f, -fallSpeed);

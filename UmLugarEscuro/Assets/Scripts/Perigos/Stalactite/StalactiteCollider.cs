@@ -8,7 +8,14 @@ public class StalactiteCollider : MonoBehaviour
     private BoxCollider2D bc2d;
 
     public Rigidbody2D rb2d;
-    
+
+    private AudioSource audio;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +32,7 @@ public class StalactiteCollider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            audio.Play();
             Destroy((bc2d));
             Destroy(this);
             rb2d.bodyType = RigidbodyType2D.Dynamic;

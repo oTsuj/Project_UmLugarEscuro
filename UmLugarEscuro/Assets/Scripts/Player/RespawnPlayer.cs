@@ -10,6 +10,8 @@ public class RespawnPlayer : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rbPlayer;
     public ParticleSystem part;
+    public AudioSource somMorte;
+    public AudioSource somCheck;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class RespawnPlayer : MonoBehaviour
 
         else if (col.tag == "Checkpoint")
         {
+            somCheck.Play();
             respawnPoint = transform.position;
         }
     }
@@ -49,6 +52,7 @@ public class RespawnPlayer : MonoBehaviour
 
     private void Die()
     {
+        somMorte.Play();
         ParticleSystem partExplosaoPlayer = Instantiate(this.part, this.transform.position, quaternion.identity);
         Destroy(partExplosaoPlayer.gameObject, 0.5f);
         StartCoroutine(Respawn(0.5f));
