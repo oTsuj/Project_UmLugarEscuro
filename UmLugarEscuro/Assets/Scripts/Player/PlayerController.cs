@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         WallJump();
         Coyote();
         JumpBuffer();
+        //SomWalk();
 
     }
 
@@ -82,6 +83,19 @@ public class PlayerController : MonoBehaviour
         
         Move();
     }
+
+    private void SomWalk()
+    {
+        if (!somWalk.isPlaying)
+        {
+            somWalk.Play();    
+        }
+        
+    }
+    private void SomWalk2()
+    {
+        somWalk.Stop();
+    }
     
     //Movimentação horizontal do jogador
     private void Move()
@@ -93,7 +107,7 @@ public class PlayerController : MonoBehaviour
         {
             rig.velocity = new Vector2(horizontal * speed, rig.velocity.y);
             
-            if (horizontal != 0 && rig.velocity.y < 1 && !isWallSliding)
+            if (horizontal != 0 && rig.velocity.y < 1 && !isWallSliding && isGrounded)
             {
                 anim.Play("Run_Luca");
             }
@@ -142,7 +156,6 @@ public class PlayerController : MonoBehaviour
                 jumpBufferCounter = 0f;
                 
                 anim.Play("Jump_Luca");
-                
                 somJump.Play();
 
                 doubleJump = !doubleJump;
