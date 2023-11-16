@@ -37,8 +37,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource somWalk;
     public AudioSource somDash;
     public AudioSource somJump;
-    public AudioSource somWallSlide;
-    
+
     public bool isGrounded;
     
     [SerializeField] private float coyoteTime = 0.3f;
@@ -56,22 +55,19 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
     private void Update()
     {
         if (isDashing)
         {
             return;
         }
-            
+        
         Jump();
         ActiveDash();
         WallSlide();
         WallJump();
         Coyote();
         JumpBuffer();
-        //SomWalk();
-
     }
 
     private void FixedUpdate()
@@ -83,7 +79,6 @@ public class PlayerController : MonoBehaviour
         
         Move();
     }
-
     private void SomWalk()
     {
         if (!somWalk.isPlaying)
@@ -203,7 +198,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isWallSliding)
         {
-            //anim.Play("WallSlide_Luca");
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;

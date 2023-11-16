@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
-    public Transform startPoint; // Ponto inicial da plataforma
-    public Transform endPoint;   // Ponto final da plataforma
-    public float speed = 2f;     // Velocidade de movimento da plataforma
+    public Transform startPoint; 
+    public Transform endPoint;   
+    public float speed = 2f;     
 
     private Vector3 targetPosition;
     private bool movingToEndPoint = true;
@@ -24,13 +24,10 @@ public class Plataforma : MonoBehaviour
 
     private void Move()
     {
-        // Move a plataforma em direção ao ponto-alvo
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        // Verifica se a plataforma chegou ao ponto-alvo
+        
         if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
         {
-            // Alterna o ponto-alvo
             if (movingToEndPoint)
             {
                 targetPosition = startPoint.position;
@@ -39,8 +36,7 @@ public class Plataforma : MonoBehaviour
             {
                 targetPosition = endPoint.position;
             }
-
-            // Inverte a direção de movimento
+            
             movingToEndPoint = !movingToEndPoint;
         } 
     }

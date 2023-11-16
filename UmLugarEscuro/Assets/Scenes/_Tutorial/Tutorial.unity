@@ -2870,7 +2870,6 @@ MonoBehaviour:
   somWalk: {fileID: 568960390}
   somDash: {fileID: 568960389}
   somJump: {fileID: 568960391}
-  somWallSlide: {fileID: 568960388}
   isGrounded: 0
   coyoteTime: 0.3
   coyoteTimeCounter: 0
@@ -5843,7 +5842,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2a297261b85aad3458c4610b6729a75d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
