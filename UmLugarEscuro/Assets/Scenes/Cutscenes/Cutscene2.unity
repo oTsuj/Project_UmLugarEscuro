@@ -154,14 +154,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d901a7071df74e446963d7c14c21bdc3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64dbcb41729db9640af83c964515a156, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce39bcab1bd8f6442bb9339d35826dbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -441,7 +441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7668d1c622922042b819320468e3479, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b3a40c92ecd9d044ad44a917b16ea9d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c35c6b485ba217e4582f6cb85b6f2891, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3959a63d950017b45a515792f4dd52d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb4538b829e0a648a3b07bfcd4fa3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageDisplayTime: 4
+  imageDisplayTime: 3
   tutorialSceneName: Menu_Inicial
   cutsceneCanvas: {fileID: 1258981434}
   cutsceneImages:
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 06a5a243ef3d012468876c5a5d6ff4b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 525cf518cc7734e46b701a8f1b661f50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
