@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PortaScript : MonoBehaviour
 {
-    // Nome da cena para a qual você deseja redirecionar
+    private float _TempoDeEspera = 0.2f;
     public string cenaDestino;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,8 +13,13 @@ public class PortaScript : MonoBehaviour
         // Verifica se o objeto que colidiu é o jogador
         if (collision.CompareTag("Player"))
         {
-            // Redireciona para a cena de destino
-            SceneManager.LoadScene(cenaDestino);
+            StartCoroutine(EsperaCena());
         }
+    }
+
+    IEnumerator EsperaCena()
+    {
+        yield return new WaitForSeconds(_TempoDeEspera);
+        SceneManager.LoadScene(cenaDestino); 
     }
 }
