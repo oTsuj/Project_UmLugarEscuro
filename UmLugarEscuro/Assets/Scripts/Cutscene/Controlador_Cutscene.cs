@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Controlador_Cutscene : MonoBehaviour
 {
     public float imageDisplayTime = 5.0f; // Tempo de exibição de cada imagem
-    public string tutorialSceneName = "Tutorial"; // Nome da cena do tutorial
+    public string tutorialSceneName;
     private int currentImageIndex = 0;
     private float currentTime = 0;
 
@@ -16,6 +16,7 @@ public class Controlador_Cutscene : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         ShowNextImage();
     }
 

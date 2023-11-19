@@ -23,10 +23,6 @@ public class RespawnPlayer : MonoBehaviour
     {
         respawnPoint = transform.position;
     }
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

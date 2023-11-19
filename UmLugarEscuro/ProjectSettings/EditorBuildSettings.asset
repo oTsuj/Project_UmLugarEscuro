@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Cutscene2.unity
     guid: ff53d4019da33224cae6ab333005735b
+  - enabled: 1
+    path: Assets/Scenes/tRANSICAO/Transicao.unity
+    guid: c5e1082fe5defb643847f658f4936d7d
   m_configObjects: {}

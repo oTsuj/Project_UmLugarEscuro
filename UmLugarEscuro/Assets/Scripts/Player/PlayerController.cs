@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //private int playerVida = 3;
-
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
