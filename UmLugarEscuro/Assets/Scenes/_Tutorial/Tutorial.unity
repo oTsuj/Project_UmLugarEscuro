@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Painel: {fileID: 176455054}
-  cena: Menu_Inicial
+  cena: Transicao
 --- !u!4 &378460657
 Transform:
   m_ObjectHideFlags: 0
